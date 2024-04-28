@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-10">
-        <br><br>
+        <br>
         <h1 class="text-center">Afghanistan</h1><br>
         <p class="text-start">The Afghan Living in DC Area, or ALDC, community represents a vibrant and supportive network nestled in the heart of northern Virginia. Anchored by a dedicated group of administrators, their presence is felt profoundly across various platforms, notably on Facebook, where they tirelessly extend a helping hand to members of their community.</p>
         <p class="text-start">One of the central pillars of ALDC's mission is to offer essential assistance to families newly arrived in the United States. Recognizing the challenges inherent in immigration, they provide invaluable support with immediate needs, ensuring a smoother transition into their new lives. Moreover, ALDC stands as a pillar of strength during somber times, aiding families with funeral arrangements and burial ceremonies, while also rallying donations for such solemn causes.</p>

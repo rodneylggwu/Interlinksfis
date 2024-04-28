@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if ($_SESSION['loggedin'] == true){
+    echo "<script type='text/javascript'>window.location.href = 'yourcommunity.php'</script>";
+  };
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,7 +35,7 @@
       }
       else {
         echo "Error: ".mysqli_error($conn);
-      }
+      };
 
 
 
@@ -58,12 +65,12 @@
                 <a class="nav-link" href="healthcare.html" style="color: whitesmoke;">HealthCare</a>
               </li>
               <li class="nav-item">
-                <a href="contact.html" class="nav-link" style="color: whitesmoke;" >Contact Us</a>
+                <a href="contact.php" class="nav-link" style="color: whitesmoke;" >Contact Us</a>
               </li>
             </ul>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="login.html" style="color: whitesmoke;">Login</a>
+                  <a class="nav-link" aria-current="page" href="login.php" style="color: whitesmoke;">Login</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#" style="color: whitesmoke;">Logout</a>
@@ -100,7 +107,7 @@
                   $Countries = mysqli_query($conn, "SELECT CountryName FROM Country_T ORDER BY CountryName");
                   while ($row = mysqli_fetch_array($Countries)) {
                     echo "<option value = '".$row['CountryName']."'".">".$row['CountryName']."</option>";
-                  }
+                  };
                 ?>
             </select>
         </div>
@@ -109,11 +116,23 @@
             <label>Select your Preferred Language</label><br>
             <select name="LanguagePreference" required >
             <?php
-                  $languages = mysqli_query($conn, "SELECT DISTINCT LanguagePreference FROM User_T"); 
+                  $languages = mysqli_query($conn, "SELECT DISTINCT LanguagePreference FROM User_T ORDER BY LanguagePreference"); 
                   while ($row = mysqli_fetch_array($languages)) {
                       echo "<option value='".$row['LanguagePreference']."'".">".$row['LanguagePreference']."</option>";
                   };
                 ?>
+          </select>
+        </div>
+
+        <div class="m-3">
+          <label>Select Your Student Status</label><br>
+          <select name="UserType" required>
+          <?php 
+            $usertype = mysqli_query($conn, "SELECT DISTINCT UserType FROM User_T ORDER BY UserType");
+            while ($row = mysqli_fetch_array($usertype)){
+              echo "<option value='".$row['UserType']."'".">".$row['UserType']."</option>";
+            };
+          ?>
           </select>
         </div>
     
@@ -158,14 +177,29 @@
         else {
           $checks++;
         };
-      };
-      
+      };      
+
       if($checks > 1){
         
-        //get the entries of all of the forms input
-        //finish adding sql that adds record to database
-        //double check
+        //placeholder for $email
+        //placeholder for $password2
+        $fname = $_POST['fname'];
+        $lname = $_POST['lname'];
+        $languagepreference = $_POST['LanguagePreference'];
+        $usertype = $_POST['UserType'];
+        $country = $_POST['Country'];
         
+
+        $sql = "INSERT INTO User_T (UniversityEmail, UserPassword, FirstName, LastName, LanguagePreference, UserType, CountryName)
+							VALUES ('$email', '$password2', '$fname', '$lname', '$languagepreference', '$usertype', '$country')";
+
+
+        if ($conn->query($sql) === TRUE){
+	          echo "<h5 style = 'color: green;'>Your account was successfully created</h5>";
+        }
+        else {
+	          echo "Error: interlink".$sql."<br>".$conn->error;
+        }; 
          
       };
 

@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html> 
 <html>
 <head>
@@ -32,20 +35,29 @@
                 <a class="nav-link" href="healthcare.html" style="color: whitesmoke;">HealthCare</a>
               </li>
               <li class="nav-item">
-                <a href="contact.html" class="nav-link" style="color: whitesmoke;" >Contact Us</a>
+                <a href="contact.php" class="nav-link" style="color: whitesmoke;" >Contact Us</a>
               </li>
             </ul>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="login.html" style="color: whitesmoke;">Login</a>
+                  <a class="nav-link" aria-current="page" href="login.php" style="color: whitesmoke;">Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" style="color: whitesmoke;">Logout</a>
+                  <a class="nav-link" href="logout.php" style="color: whitesmoke;">Logout</a>
                 </li>
             </ul>
           </div>
         </div>
       </nav>
+
+      <?php
+     if ($_SESSION['loggedin'] == true){
+
+     }
+     else{
+       include 'pleaselogin.php';
+     };
+     ?>
 
       
 

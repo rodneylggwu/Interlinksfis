@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +24,7 @@
                 <a class="nav-link" aria-current="page" href="academicadvising.html" style="color: whitesmoke;">Academic Advising</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="events.html" style="color: whitesmoke;">Events</a>
+                <a class="nav-link" href="events.php" style="color: whitesmoke;">Events</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="yourcommunity.php" style="color: whitesmoke;">Your Community</a>
@@ -32,24 +36,36 @@
                 <a class="nav-link" href="healthcare.html" style="color: whitesmoke;">HealthCare</a>
               </li>
               <li class="nav-item">
-                <a href="contact.html" class="nav-link" style="color: whitesmoke;" >Contact Us</a>
+                <a href="contact.php" class="nav-link" style="color: whitesmoke;" >Contact Us</a>
               </li>
             </ul>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="login.html" style="color: whitesmoke;">Login</a>
+                  <a class="nav-link" aria-current="page" href="login.php" style="color: whitesmoke;">Login</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#" style="color: whitesmoke;">Logout</a>
+                  <a class="nav-link" href="logout.php" style="color: whitesmoke;">Logout</a>
                 </li>
             </ul>
           </div>
         </div>
       </nav>
-
-      <?php 
+      <br><br>
+      
+     <?php
+     if ($_SESSION['loggedin'] == true){
+      if ($_SESSION['CountryName'] == "Afghanistan"){
+        include 'welcomebanner.php';
         include 'afghanistan.php';
-      ?>
+      }
+      else{
+        include 'futurecountrysupport.php';
+      };
+     }
+     else{
+       include 'pleaselogin.php';
+     };
+     ?>
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
