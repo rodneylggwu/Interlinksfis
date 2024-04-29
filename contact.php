@@ -47,12 +47,63 @@
         </div>
       </nav>
 
-
-    <main class="d-flex justify-content-center">
-        <div class="row">
-            <h1>Contact Information Coming Soon</h1>
+    <br><br>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <h2 class="text-center">Contact Us</h2>
+          <form action="contact.php" method="post">
+            <div class="my-3">
+              <label class="form-label" for="Name">Name</label>
+              <input type="text" name="contactname" class="form-control" required>
+            </div>
+            <div class="my-3">
+              <label class="form-label" for="Email">Email</label>
+              <input type="email" name="email" class="form-control" required>
+            </div>
+            <div class="my-3">
+              <label class="form-label" for="message">Message</label>
+              <textarea class="form-control" rows="3" name="message"></textarea>
+            </div>
+            <div class="text-center">
+            <button class="btn btn-primary my-3" type="submit" name="submit" value="submit">Send Message</button>
+            </div>
+          </form>
         </div>
-    </main>
+        <div class="col-md-2"></div>
+      </div>
+    </div>
+
+    <?php
+    if (isset($_POST['submit'])) {
+      
+      $servername = "localhost";
+      $username = "rodneylg";
+      $password = "Kourtney!23";
+      $dbname = "Interlink";
+      
+      $conn = new mysqli($servername, $username, $password, $dbname);
+    
+
+      $contactname = $_POST['contactname'];
+      $contactemail = $_POST['email'];
+      $contactmessage = $_POST['message'];
+
+      $contactsql = "INSERT INTO Contact_T (ContactName, contactEmail, ContactMessage)
+							VALUES ('$contactname', '$contactemail', '$contactmessage')";
+
+      if ($conn->query($contactsql) === TRUE){
+        echo "<h5 class='text-center' style = 'color: green;'>Your message has been sent.  We will respond as soon as possible.</h5>";
+      }
+      else {
+        echo "Error: interlink".$contactsql."<br>".$conn->error;
+      }; 
+
+      
+      echo "I'm working";
+    }
+    ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

@@ -59,6 +59,7 @@
         include 'afghanistan.php';
       }
       else{
+        include 'welcomebanner.php';
         include 'futurecountrysupport.php';
       };
      }

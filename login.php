@@ -88,7 +88,7 @@
         <?php
         
         $servername = "localhost";
-        $username = "rodney";
+        $username = "rodneylg";
         $password = "Kourtney!23";
         $dbname = "Interlink";
 
@@ -112,6 +112,11 @@
                 $_SESSION['FirstName'] = $data['FirstName'];
                 $_SESSION['LastName'] = $data['LastName'];
                 $_SESSION['loggedin'] = true;
+
+                $countryname = $_SESSION['CountryName'];
+                $getcountrycode = mysqli_query($conn, "SELECT * FROM `Country_T` WHERE CountryName = '$countryname'");
+                $countryinfo = mysqli_fetch_array($getcountrycode);
+                $_SESSION['CountryCode'] =  $countryinfo['CountryID'];
                 echo "<script type='text/javascript'>window.location.href = 'yourcommunity.php'</script>";
 
 
