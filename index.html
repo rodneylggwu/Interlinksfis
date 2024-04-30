@@ -4,14 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="interlink.css">
-    <title>InterlinkSFIS</title>
+    <link rel="stylinterlinkesheet" href=".css">
+    <title>Interlink</title>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" style="color: whitesmoke;">InterlinkSFIS</a>
+          <a class="navbar-brand" href="index.html" style="color: whitesmoke;">Interlink</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -38,6 +38,9 @@
             </ul>
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="account.php" style="color: whitesmoke;">Account</a>
+                  </li>
+                <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="login.php" style="color: whitesmoke;">Login</a>
                 </li>
                 <li class="nav-item">
@@ -50,28 +53,53 @@
 
 <br>
 <br>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-3">
-            <img class="img-fluid float-start rounded"  src="images/welcome.jpg">
+<section id="homepage" class="about" style="padding-left: 30px;">
+    <h2>Welcome to Interlink</h2>
+    <p>Your global community with opportunities, connections, and resources just for you. Let's embark on this journey together.</p>
+
+</section>
+
+<section class="services-section" style="padding-top: 50px; padding-bottom: 50px;">
+    <div class="container">
+
+        <div class="community">
+            <img class="service-image" src="images/community.jpg" alt="Your Community" style="width: 25%; height: auto; padding-top:20px;">
+            <div class="community-info">
+                <h4 style="padding: 20px;">Your Community</h4>
+                <p>Your personalized guide to local treasures and resources. Dive into a wealth of information about places such as restaurants, grocery stores, and other resources in your chosen community. Discover hidden gems, essential services, and unlock the essence of your chosen locale.</p>
+                <div class="text-center">
+                    <button class="btn btn-primary"><a href="yourcommunity.php" style="color: whitesmoke; text-decoration: none;">Learn More</a></button>
+                </div>
+            </div>
+
         </div>
-        <div class="col-md-9">
+
+        <div class="events">
+            <img class="service-image" src="images/events.jpg" alt="Events" style="width: 25%; height: auto; padding-top:50px;">
+            <div class="service-info">
+                <h4 style="padding: 20px;">Events</h4>
+                <p>Your hub for cultural happenings on and near campus. Stay connected with a collection of events celebrating diversity and cultural richness. From festivals to exhibitions, immerse yourself in vibrant experiences that bring your community to life. </p>
+                <div class="text-center">
+                    <button class="btn btn-primary"><a href="events.php" style="color: whitesmoke; text-decoration: none;">Learn More</a></button>
+                </div>
+            </div>
         </div>
+        
     </div>
-    <br><br>
-    <div class="row">
-        <div class="col-md-4">
-            <h1 class="h3">Welcome to the <span style="color: red;">U</span><span style="color: white;">S</span><span style="color: blue;">A</span></h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <p>Landing Page Text Goes Here</p>
-        </div>
-    </div>
-</div>
+</section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<footer class="bg-primary text-white text-center p-3 mt-2">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <p>&copy; 2024 SFIS</p>
+            </div>
+            <div class="col-4">
+                <a href="contact.php" style="color: whitesmoke;">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</footer>
 </body>
-
 </html>
