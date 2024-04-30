@@ -61,44 +61,44 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-
-
-      <?php
-
-    $fname = ucfirst($_SESSION['FirstName']);
-    $countrycode = $_SESSION['CountryCode'];
-
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    $sql = "SELECT * FROM `Event_T` WHERE CountryID = $countrycode";
-    $query = mysqli_query($conn, $sql);
-    $no = mysqli_num_rows($query);
-
-     if ($_SESSION['loggedin'] == true){
-        
-        if ($no > 0){
-          echo "<h5 class='text-start'>"."$fname, here are events happening in your area:"."</h5><br><hr>";
-          while ($row = mysqli_fetch_array($query)){
-            echo "<h4 class='text-start'>".$row['EventName']."</h4>";
-            $starttime = $row['EventDateStart'];
-            $endtime = $row['EventDateStop'];
-            echo "<p class='text-start'>".date('n/j/Y g:i A', strtotime($starttime))." - ".date('n/j/Y g:i A', strtotime($endtime))."</p>";
-            
-            echo "<address class='text-start'>".$row['EventAddress']."<br>".$row['EventCity']." ".$row['EventState']." ".$row['EventZip']."</address>";
-            echo "<p class='text-start'>".$row['EventDescription']."</p><hr>";
-          };
           
-          include 'createEvent.php';
+          <?php
+
+            if ($_SESSION['loggedin'] == true){
+              $fname = ucfirst($_SESSION['FirstName']);
+              $countrycode = $_SESSION['CountryCode'];
 
 
+              $conn = new mysqli($servername, $username, $password, $dbname);
+              $sql = "SELECT * FROM `Event_T` WHERE CountryID = $countrycode";
+              $query = mysqli_query($conn, $sql);
+              $no = mysqli_num_rows($query);
 
-        }
-        else{
-          echo "<h3 class='text-start'>"."$fname, there are no events in your area"."</h3><br>";
-          include 'createEvent.php';
-        };
-        };
-     ?>
+              if ($no > 0){
+                echo "<h5 class='text-start'>"."$fname, here are events happening in your area:"."</h5><br><hr>";
+                while ($row = mysqli_fetch_array($query)){
+                  echo "<h4 class='text-start'>".$row['EventName']."</h4>";
+                  $starttime = $row['EventDateStart'];
+                  $endtime = $row['EventDateStop'];
+                  echo "<p class='text-start'>".date('n/j/Y g:i A', strtotime($starttime))." - ".date('n/j/Y g:i A', strtotime($endtime))."</p>";
+                  echo "<address class='text-start'>".$row['EventAddress']."<br>".$row['EventCity']." ".$row['EventState']." ".$row['EventZip']."</address>";
+                  echo "<p class='text-start'>".$row['EventDescription']."</p><hr>";
+
+                }
+                include 'createEvent.php';
+              }
+              else{
+                echo "<h3 class='text-start'>"."$fname, there are no events in your area"."</h3><br>";
+                include 'createEvent.php';
+              }
+
+
+            }
+            else {
+              include 'pleaselogin.php';
+            }
+            
+          ?>
 
 </div>
 <div class="col-md-1"></div>
