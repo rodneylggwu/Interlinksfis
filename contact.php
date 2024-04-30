@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="index.html" style="color: whitesmoke;">InterlinkSFIS</a>
+          <a class="navbar-brand" href="index.html" style="color: whitesmoke;">Interlink</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -36,6 +36,9 @@
               </li>
             </ul>
             <ul class="navbar-nav justify-content-end">
+            <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="account.php" style="color: whitesmoke;">Account</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" aria-current="page" href="login.php" style="color: whitesmoke;">Login</a>
                 </li>
@@ -64,7 +67,7 @@
             </div>
             <div class="my-3">
               <label class="form-label" for="message">Message</label>
-              <textarea class="form-control" rows="3" name="message"></textarea>
+              <textarea class="form-control" rows="3" name="message" required></textarea>
             </div>
             <div class="text-center">
             <button class="btn btn-primary my-3" type="submit" name="submit" value="submit">Send Message</button>
@@ -75,29 +78,34 @@
       </div>
     </div>
 
+            </div>
+
+            <?php
+            if (isset($_POST['submit'])) {
+                
+                $contactname = $_POST['contactname'];
+                $contactemail = $_POST['email'];
+                $contactmessage = $_POST['message'];
+
     
-    <?php
-    if (isset($_POST['submit'])) {
-    $contactname = $_POST['contactname'];
-    $contactemail = $_POST['email'];
-    $contactmessage = $_POST['message'];
-    
-    $to = 'ekilkeary@gwu.edu';
-    $subject = 'New message from ' . $contactname;
-    $message = 'Name: ' . $contactname . "\r\n" .
-    'Email: ' . $contactemail . "\r\n" .
-    'Message: ' . $contactmessage;
-    $headers = 'From: ' . $contactemail;
-    
-    if (mail($to, $subject, $message, $headers)) {
-    echo "<h5 class='text-center' style = 'color: green;'>Your message has been sent. We will respond as soon as possible.</h5>";
-    } else {
-    echo "<h5 class='text-center' style = 'color: red;'>There was a problem sending your message. Please try again later.</h5>";
-    }
-    }
-    ?>
+                $to = 'ekilkeary@gwu.edu'; 
+                $subject = 'New message from ' . $contactname;
+                $message = 'Name: ' . $contactname . "\r\n" .
+                'Email: ' . $contactemail . "\r\n" .
+                'Message: ' . $contactmessage;
+                $headers = 'From: ' . $contactemail;
+
+                if (mail($to, $subject, $message, $headers)) {
+                    echo "<h5 class='text-center' style = 'color: green;'>Your message has been sent.  We will respond as soon as possible.</h5>";
+                } else {
+                    echo "<h5 class='text-center' style = 'color: red;'>There was a problem sending your message. Please try again later.</h5>";
+                }
+            }
+            ?>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>
