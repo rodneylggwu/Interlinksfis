@@ -75,33 +75,25 @@
       </div>
     </div>
 
+    
     <?php
     if (isset($_POST['submit'])) {
-      
-      $servername = "localhost";
-      $username = "rodneylg";
-      $password = "Kourtney!23";
-      $dbname = "Interlink";
-      
-      $conn = new mysqli($servername, $username, $password, $dbname);
+    $contactname = $_POST['contactname'];
+    $contactemail = $_POST['email'];
+    $contactmessage = $_POST['message'];
     
-
-      $contactname = $_POST['contactname'];
-      $contactemail = $_POST['email'];
-      $contactmessage = $_POST['message'];
-
-      $contactsql = "INSERT INTO Contact_T (ContactName, contactEmail, ContactMessage)
-							VALUES ('$contactname', '$contactemail', '$contactmessage')";
-
-      if ($conn->query($contactsql) === TRUE){
-        echo "<h5 class='text-center' style = 'color: green;'>Your message has been sent.  We will respond as soon as possible.</h5>";
-      }
-      else {
-        echo "Error: interlink".$contactsql."<br>".$conn->error;
-      }; 
-
-      
-      echo "I'm working";
+    $to = 'ekilkeary@gwu.edu';
+    $subject = 'New message from ' . $contactname;
+    $message = 'Name: ' . $contactname . "\r\n" .
+    'Email: ' . $contactemail . "\r\n" .
+    'Message: ' . $contactmessage;
+    $headers = 'From: ' . $contactemail;
+    
+    if (mail($to, $subject, $message, $headers)) {
+    echo "<h5 class='text-center' style = 'color: green;'>Your message has been sent. We will respond as soon as possible.</h5>";
+    } else {
+    echo "<h5 class='text-center' style = 'color: red;'>There was a problem sending your message. Please try again later.</h5>";
+    }
     }
     ?>
 
