@@ -97,13 +97,7 @@
           echo "<h3 class='text-start'>"."$fname, there are no events in your area"."</h3><br>";
           include 'createEvent.php';
         };
-        
-
-
-     }
-     else{
-       include 'pleaselogin.php';
-     };
+        };
      ?>
 
 </div>
