@@ -58,6 +58,14 @@
         include 'welcomebanner.php';
         include 'afghanistan.php';
       }
+      elseif($_SESSION['CountryName'] == "Nigeria"){
+        include 'welcomebanner.php';
+        include 'nigeria.php';
+      }
+      elseif($_SESSION['CountryName'] == "Ethiopia"){
+        include 'welcomebanner.php';
+        include 'ethiopia.php';
+      }
       else{
         include 'welcomebanner.php';
         include 'futurecountrysupport.php';
