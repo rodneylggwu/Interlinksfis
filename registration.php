@@ -15,20 +15,21 @@
     <title>Registration</title>
 </head>
 <body>
+<?php
+      include 'navbar.php';
+    ?>
 
 <?php 
-      
-      
       $servername = "localhost";
-      $username = "rodney";
+      $username = "rodneylg";
       $password = "Kourtney!23";
       $dbname = "Interlink";
 
       $conn = new mysqli($servername, $username, $password, $dbname);
-
+      
       if ($conn->connect_error){
         die("Connection failed: ". $conn->connect_error);
-      }
+      };
 
       if (mysqli_ping($conn)){
        
@@ -36,13 +37,6 @@
       else {
         echo "Error: ".mysqli_error($conn);
       };
-
-
-
-    ?>
-
-    <?php
-      include 'navbar.php';
     ?>
 
 
@@ -119,7 +113,6 @@
     <div class="row">
       <div class="text-center">
       <?php
-      
       if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $sql = "SELECT UniversityEmail FROM User_T WHERE UniversityEmail = '$email'";
@@ -167,7 +160,6 @@
         }; 
          
       };
-
 
     ?>
       </div>

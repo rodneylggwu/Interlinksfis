@@ -7,7 +7,7 @@
     <link rel="stylinterlinkesheet" href=".css">
     <title>Interlink</title>
 </head>
-<body>
+<body style="padding-bottom: 100px;">
 
 <?php
   include 'navbar.php';

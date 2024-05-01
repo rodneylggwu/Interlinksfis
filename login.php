@@ -26,7 +26,7 @@
                 <div class="col-md-3"></div>
                 <div class="col-md-4 mx-auto d-flex justify-content-center align-items-center" style="height: 750px;" >
                     <form action="login.php" method="post">
-                        <h1 class="h2 mb-3 text-primary text-center" style="font-family: 'Playfair Display', serif;">Welcome to InterlikSFIS</h1>
+                        <h1 class="h2 mb-3 text-primary text-center" style="font-family: 'Playfair Display', serif;">Welcome to Interlink</h1>
         
                         <div class="form-floating">
                             <input type="email" name="email" class="form-control" id="floatingInput" placeholder="Input Email Here">

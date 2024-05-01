@@ -21,11 +21,11 @@ $servername = "localhost";
 $username = "rodneylg";
 $password = "Kourtney!23";
 $dbname = "Interlink";
-$port = 3306;
+//$port = 3306;
 
 $uname = $_SESSION['UniversityEmail'];
 
-$conn = new mysqli($servername, $username, $password, $dbname, $port);
+$conn = new mysqli($servername, $username, $password, $dbname/*, $port*/);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -51,6 +51,8 @@ while ($row = $result->fetch_assoc()) {
 }
 
 $conn->close();
+
+
 ?>
 
 <div class="container-fluid">
