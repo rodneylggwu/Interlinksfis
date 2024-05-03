@@ -2,8 +2,8 @@
   session_start();
 
   $servername = "localhost";
-  $username = "rodneylg";
-  $password = "Kourtney!23";
+  $username = "******";
+  $password = "******";
   $dbname = "Interlink";
 
 ?>

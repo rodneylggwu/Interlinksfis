@@ -53,8 +53,8 @@
         <?php
         
         $servername = "localhost";
-        $username = "rodneylg";
-        $password = "Kourtney!23";
+        $username = "******";
+        $password = "******";
         $dbname = "Interlink";
 
         $conn = new mysqli($servername, $username, $password, $dbname);

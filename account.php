@@ -20,8 +20,8 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true){
 }
 
 $servername = "localhost";
-$username = "rodneylg";
-$password = "Kourtney!23";
+$username = "******";
+$password = "******";
 $dbname = "Interlink";
 //$port = 3306;
 
